@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ホクトレジデントでの検索結果の病院名とその公式サイトを一覧表示するサイト</title>
+</head>
+<body>
+  <h1>ホクトレジデントでの検索結果の病院名とその公式サイトを一覧表示するサイト</h1>
+  <p>使い方：</p>
+  <p>1.ホクトレジデント公式サイト(https://www.hokto.jp/)から、自分の希望の条件で研修病院を検索</p>
+  <p>2.その直後に表示されるページのURL、つまり条件に合う研修病院の名前が列挙されているページのURLを、以下のテキストボックスにコピペ</p>
+  <p>3.「実行」をクリックすると、病院名と公式サイトのURLが一覧表示されます(数秒~数分かかることも)</p>
+  <form action="/scrape" method="post">
+    <input type="text" name="url" placeholder="URL">
+    <input type="submit" value="実行">
+  </form>
+  <h2>結果</h2>
+  <ul>
+    {% for element in result %}
+      <li>{{ element }}</li>
+    {% endfor %}
+  </ul>
+  
+</body>
+</html>
+
